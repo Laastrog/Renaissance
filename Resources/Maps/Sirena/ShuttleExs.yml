@@ -1,0 +1,100 @@
+meta:
+  format: 6
+  postmapinit: true
+tilemap: {}
+entities:
+- proto: ActionToggleLight
+  entities:
+  - uid: 6
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 4
+      type: Transform
+    - container: 4
+      type: InstantAction
+  - uid: 7
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 4
+      type: Transform
+    - container: 4
+      type: InstantAction
+- proto: ClothingBeltJanitorFilled
+  entities:
+  - uid: 1
+    components:
+    - pos: 22.547918,-22.38711
+      type: Transform
+    - containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 2
+          - 3
+          - 4
+      type: ContainerContainer
+    - canCollide: False
+      type: Physics
+- proto: FlashlightLantern
+  entities:
+  - uid: 4
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 1
+      type: Transform
+    - selfToggleActionEntity: 7
+      toggleActionEntity: 6
+      type: HandheldLight
+    - containers:
+        cell_slot: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: 5
+        actions: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 6
+          - 7
+      type: ContainerContainer
+    - canCollide: False
+      type: Physics
+    - type: ActionsContainer
+    - actions:
+      - 7
+      type: Actions
+- proto: PowerCellMedium
+  entities:
+  - uid: 5
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 4
+      type: Transform
+    - canCollide: False
+      type: Physics
+- proto: Soap
+  entities:
+  - uid: 2
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 1
+      type: Transform
+    - canCollide: False
+      type: Physics
+- proto: SprayBottleSpaceCleaner
+  entities:
+  - uid: 3
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 1
+      type: Transform
+    - canCollide: False
+      type: Physics
+...
